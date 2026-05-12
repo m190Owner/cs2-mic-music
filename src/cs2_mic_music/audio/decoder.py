@@ -70,7 +70,7 @@ def _build_command(
         "-f", "f32le",
     ]
     if loudnorm:
-        # Single-pass dynamic loudnorm — good enough for live playback.
+        # Single-pass dynamic loudnorm - good enough for live playback.
         cmd += ["-af", "loudnorm=I=-16:TP=-1.5:LRA=11"]
     cmd += ["pipe:1"]
     return cmd
@@ -169,7 +169,7 @@ class Decoder:
             try:
                 chunk = self._q.get(timeout=0.05)
             except queue.Empty:
-                # Underrun — return zeros for what we couldn't fill.
+                # Underrun - return zeros for what we couldn't fill.
                 return out, False
             if chunk is None:
                 self._eof = True

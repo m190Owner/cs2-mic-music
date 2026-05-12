@@ -2,9 +2,9 @@
 
 Two-mode playback:
 
-* **Cache hit** — track has been downloaded before; return a ``Track`` whose
+* **Cache hit** - track has been downloaded before; return a ``Track`` whose
   ``location`` is the cached file path. Decoder reads the local file.
-* **Cache miss** — resolve the direct streamable audio URL with ``yt-dlp``,
+* **Cache miss** - resolve the direct streamable audio URL with ``yt-dlp``,
   return a ``Track`` whose ``location`` is that URL (the decoder streams it),
   and in parallel kick off a background download to populate the cache for
   next time.
@@ -29,7 +29,7 @@ log = logging.getLogger(__name__)
 def is_playlist_url(query: str) -> bool:
     """True if ``query`` is a YouTube or YouTube Music URL carrying a playlist.
 
-    Any URL with a ``list=`` query parameter is treated as a playlist —
+    Any URL with a ``list=`` query parameter is treated as a playlist -
     including ``watch?v=X&list=Y`` (the browser-bar shape you get while
     watching a video inside a playlist). Pasting that expands the entire
     playlist into the queue.

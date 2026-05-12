@@ -21,7 +21,7 @@ def _import_pynput():
         from pynput import keyboard  # type: ignore
         return keyboard
     except Exception as e:
-        log.warning("pynput unavailable: %s — global hotkeys disabled", e)
+        log.warning("pynput unavailable: %s - global hotkeys disabled", e)
         return None
 
 

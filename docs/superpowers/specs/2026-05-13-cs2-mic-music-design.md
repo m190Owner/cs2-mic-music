@@ -1,4 +1,4 @@
-# cs2-mic-music — Design
+# cs2-mic-music - Design
 
 ## Purpose
 Desktop app that plays local audio files and YouTube tracks through a virtual
@@ -10,7 +10,7 @@ output on their real headphones.
 - Music player with queue, play/pause/skip/prev/seek/volume.
 - Sources: local files (folder library) and YouTube (URL paste + search).
 - Output routing: user-selectable output device (e.g. VB-CABLE Input) **plus**
-  an optional second monitor device (e.g. headphones) — same audio fanned to
+  an optional second monitor device (e.g. headphones) - same audio fanned to
   both.
 - Save/load named playlists (mixed local + YouTube entries) to disk.
 - Loudness normalization across tracks (ffmpeg `loudnorm`).
@@ -59,7 +59,7 @@ cs2-mic-music/
 - `transport` is the **only** thing the UI and hotkeys talk to. The UI never
   touches `audio/` directly. This keeps the audio engine swappable and lets
   `transport` be tested with a fake mixer.
-- `sources/*` produce a `Track` record (title, duration, decoder factory) —
+- `sources/*` produce a `Track` record (title, duration, decoder factory) -
   identical to the rest of the system regardless of origin.
 - `audio/decoder.py` exposes a uniform PCM-frame interface; mixer and sink
   don't know whether a track came from a local file or YouTube.
@@ -113,7 +113,7 @@ Track → Decoder (ffmpeg subprocess, applies loudnorm)
 - **Device disconnect mid-playback** (e.g. headphones unplugged): sounddevice
   raises; sink catches, pauses playback, and shows a device-lost message; user
   picks a new device.
-- **Cache write failure:** non-fatal — playback continues from the streaming
+- **Cache write failure:** non-fatal - playback continues from the streaming
   path, cache miss next time.
 - **Hotkey backend unavailable** (pynput init failure): app starts without
   hotkeys, logs a warning, GUI still works.
@@ -130,14 +130,14 @@ Track → Decoder (ffmpeg subprocess, applies loudnorm)
 
 ## Dependencies
 - Python 3.11+
-- `PySide6` — GUI
-- `sounddevice` (PortAudio) — multi-device output
-- `numpy` — PCM buffers, mixer math
-- `pynput` — global hotkeys on Windows
-- `yt-dlp` — YouTube extraction
-- `ffmpeg.exe` — decoding, loudnorm, resampling (bundled or PATH)
-- Optional: `mutagen` — read metadata from local files
-- Optional: `PyInstaller` — build a single .exe distribution
+- `PySide6` - GUI
+- `sounddevice` (PortAudio) - multi-device output
+- `numpy` - PCM buffers, mixer math
+- `pynput` - global hotkeys on Windows
+- `yt-dlp` - YouTube extraction
+- `ffmpeg.exe` - decoding, loudnorm, resampling (bundled or PATH)
+- Optional: `mutagen` - read metadata from local files
+- Optional: `PyInstaller` - build a single .exe distribution
 
 ## Testing
 - `transport` and `queue` are pure Python, testable with a fake mixer.

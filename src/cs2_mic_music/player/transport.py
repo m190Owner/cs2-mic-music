@@ -134,7 +134,7 @@ class Transport:
     def _on_track_ended(self) -> None:
         # Called from the audio producer thread. Avoid blocking; mark
         # pending and advance on the next tick from the main thread.
-        # Simple approach: just advance directly — the producer can spawn
+        # Simple approach: just advance directly - the producer can spawn
         # a new decoder; it's bounded work.
         self._auto_advance_pending = True
         threading.Thread(target=self._do_auto_advance, daemon=True).start()

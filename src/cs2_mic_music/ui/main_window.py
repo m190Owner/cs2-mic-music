@@ -33,7 +33,7 @@ log = logging.getLogger(__name__)
 
 
 class MainWindow(QMainWindow):
-    # Hotkey signals — emitted from pynput callback threads, connected
+    # Hotkey signals - emitted from pynput callback threads, connected
     # via Qt::QueuedConnection so they run on the GUI thread.
     hk_play_pause = Signal()
     hk_next = Signal()
@@ -295,4 +295,4 @@ class MainWindow(QMainWindow):
             self.setWindowTitle("CS2 Mic Music")
             return
         state = "▶" if not self.transport.mixer.paused else "⏸"
-        self.setWindowTitle(f"{state} {cur.display()} — CS2 Mic Music")
+        self.setWindowTitle(f"{state} {cur.display()} - CS2 Mic Music")

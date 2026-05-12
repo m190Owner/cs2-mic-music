@@ -8,7 +8,7 @@ through a virtual microphone so they show up in Counter-Strike 2 voice chat
 
 - Queue mixing local files, single YouTube/YT Music URLs, search queries,
   and full YouTube/YT Music playlists (paste `playlist?list=…` or
-  `watch?v=…&list=…` — both expand into the queue)
+  `watch?v=…&list=…` - both expand into the queue)
 - YouTube tracks stream on first play and are cached to disk in the
   background so subsequent plays are instant
 - Crossfade between tracks (default 4s, configurable)
@@ -47,7 +47,7 @@ mic-target and headphone monitor stay perfectly in sync.
 To get music into CS2 you need a virtual audio device that pretends to be
 a microphone. There are two ways to wire it up. Pick one.
 
-### Option A — VB-CABLE (simple; music *replaces* your voice)
+### Option A - VB-CABLE (simple; music *replaces* your voice)
 
 Use this if you only want to play music and don't need to talk over it.
 
@@ -58,10 +58,10 @@ Use this if you only want to play music and don't need to talk over it.
    myself" checked.
 5. In CS2: **Settings → Audio → Voice → Voice Input Audio Device →
    `CABLE Output (VB-Audio Virtual Cable)`**.
-6. Hold your CS2 push-to-talk key — teammates hear the music. Your
+6. Hold your CS2 push-to-talk key - teammates hear the music. Your
    real mic is bypassed entirely.
 
-### Option B — VoiceMeeter (talk *and* play music at the same time)
+### Option B - VoiceMeeter (talk *and* play music at the same time)
 
 Use this when you want to keep talking with teammates while music plays.
 [VoiceMeeter Banana](https://vb-audio.com/Voicemeeter/banana.htm) is free
@@ -75,12 +75,12 @@ and the cleanest setup.
    - **Virtual Input ("Voicemeeter Input")**: turn both **A** and **B**
      on (so the app's music plays on your headphones *and* feeds CS2).
    - **Hardware Out A1**: click → **MME (Multimedia)** tab → pick your
-     real headphones. **Use MME**, not WDM — WDM/WASAPI locks the
+     real headphones. **Use MME**, not WDM - WDM/WASAPI locks the
      headphones in exclusive mode and silences every other app's audio.
 3. In cs2-mic-music:
    - **Mic output (CS2):** `Voicemeeter Input` (or
      `VoiceMeeter Input (VB-Audio VoiceMeeter VAIO)`).
-   - **Monitor (headphones):** disable it ("Hear it myself" off) — the
+   - **Monitor (headphones):** disable it ("Hear it myself" off) - the
      A bus already feeds your headphones via VoiceMeeter.
 4. In CS2: **Settings → Audio → Voice → Voice Input Audio Device →
    `Voicemeeter Out B1`** (you may need to scroll the dropdown; full list
@@ -117,7 +117,7 @@ python -m cs2_mic_music.app
 ```
 
 Or after `pip install -e .`, you get a `cs2-mic-music.exe` in
-`.venv\Scripts\` — pin a shortcut to that to your taskbar for one-click
+`.venv\Scripts\` - pin a shortcut to that to your taskbar for one-click
 launch (the GUI entry point under `[project.gui-scripts]` means no console
 window flashes on launch).
 
@@ -125,7 +125,7 @@ window flashes on launch).
 
 - **Add folder…** / **Add files…**: pull in local audio (mp3, flac, wav,
   m4a, aac, ogg, opus).
-- **URL / search box**: paste any of —
+- **URL / search box**: paste any of -
   - a single YouTube URL (`youtube.com/watch?v=…` or `youtu.be/…`)
   - a single YouTube Music URL
   - a YouTube *or* YouTube Music playlist URL
@@ -135,7 +135,7 @@ window flashes on launch).
   a name, load it back later. Stored as JSON in
   `%APPDATA%\cs2-mic-music\playlists\`.
 
-Playlist tracks resolve lazily — the queue fills instantly with metadata
+Playlist tracks resolve lazily - the queue fills instantly with metadata
 (title, artist, duration), and each entry resolves to a stream URL or
 cached file at play time. A serial background download caches the whole
 playlist to `%APPDATA%\cs2-mic-music\cache\` so re-plays are local.

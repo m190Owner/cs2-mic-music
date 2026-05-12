@@ -6,7 +6,7 @@ writes the same buffer to one or two ``sounddevice.OutputStream``s
 
 ``OutputStream`` is opened in blocking mode (no callback). Each ``write()``
 blocks until that stream has room for the block, so the producer's pace is
-bounded by the slower of the two devices — keeping them within ~one block
+bounded by the slower of the two devices - keeping them within ~one block
 of each other. That's well under perceivable drift for monitoring.
 """
 
@@ -107,7 +107,7 @@ class Sink:
         assert self._render is not None
         while not self._stopped.is_set():
             block = self._render(self._block_size)
-            # Snapshot streams list once per block — open() rebuilds it
+            # Snapshot streams list once per block - open() rebuilds it
             # holding _lock, which we read here.
             with self._lock:
                 streams = list(self._streams)

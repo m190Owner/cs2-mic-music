@@ -1,4 +1,4 @@
-"""Entry point — wires config, audio engine, hotkeys, and GUI together."""
+"""Entry point - wires config, audio engine, hotkeys, and GUI together."""
 
 from __future__ import annotations
 
